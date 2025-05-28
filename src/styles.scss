@@ -1,1 +1,152 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Global Color System - Chavin Explore Color Palette */
+:root {
+  /* Primary Brand Colors */
+  --primary-color: #00BFFF;        /* Sky Blue - Primary background / buttons / accents */
+  --primary-dark: #0077B6;         /* Deep Blue - Headers / CTAs / hover effects */
+  --primary-light: #B0E0E6;        /* Light Gray-Blue - Section separators / secondary buttons */
+
+  /* Secondary Colors */
+  --secondary-color: #2E8B57;      /* Forest Green - Nature accents / section backgrounds */
+  --secondary-dark: #14532D;       /* Dark Green - Text highlights / footer background */
+  --secondary-light: #2E8B57;      /* Forest Green (keeping same for consistency) */
+
+  /* WhatsApp Colors */
+  --whatsapp-green: #25D366;       /* Official WhatsApp green */
+  --whatsapp-green-dark: #128C7E;  /* Darker WhatsApp green for hover */
+  --whatsapp-green-light: #DCF8C6; /* Light WhatsApp green for background effects */
+
+  /* Accent Colors */
+  --accent-color: #0077B6;         /* Deep Blue for accents */
+  --accent-dark: #14532D;          /* Dark Green for darker accents */
+  --accent-light: #B0E0E6;         /* Light Gray-Blue for light accents */
+
+  /* Neutral Colors */
+  --text-primary: #000000;         /* Charcoal Black - Primary text */
+  --text-secondary: #14532D;       /* Dark Green - Secondary text */
+  --text-light: #2E8B57;           /* Forest Green - Light text */
+  --text-white: #FFFFFF;           /* White - Text on dark backgrounds */
+
+  /* Background Colors */
+  --bg-primary: #FFFFFF;           /* White - Primary background */
+  --bg-secondary: #B0E0E6;         /* Light Gray-Blue - Secondary background */
+  --bg-dark: #000000;              /* Charcoal Black - Dark background */
+  --bg-nature: #2E8B57;            /* Forest Green - Nature section backgrounds */
+  --bg-footer: #14532D;            /* Dark Green - Footer background */
+
+  /* Gradient Colors */
+  --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  --gradient-nature: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
+  --gradient-primary-hover: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+
+  /* Shadow Colors */
+  --shadow-light: rgba(0, 191, 255, 0.1);     /* Sky Blue shadow */
+  --shadow-medium: rgba(0, 119, 182, 0.2);    /* Deep Blue shadow */
+  --shadow-primary: rgba(0, 191, 255, 0.3);   /* Sky Blue primary shadow */
+  --shadow-primary-hover: rgba(0, 119, 182, 0.4); /* Deep Blue hover shadow */
+  --shadow-nature: rgba(46, 139, 87, 0.2);    /* Forest Green shadow */
+  --shadow-whatsapp: rgba(37, 211, 102, 0.3); /* WhatsApp green shadow */
+  --shadow-whatsapp-hover: rgba(18, 140, 126, 0.4); /* WhatsApp dark green shadow */
+
+  /* Border Colors */
+  --border-light: rgba(0, 191, 255, 0.1);     /* Sky Blue light border */
+  --border-medium: rgba(0, 191, 255, 0.3);    /* Sky Blue medium border */
+  --border-nature: rgba(46, 139, 87, 0.3);    /* Forest Green border */
+  --border-separator: #B0E0E6;                 /* Light Gray-Blue separators */
+}
+
+/* Dark mode color overrides (optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Only override if we're using a dark navbar background */
+    /* Commenting out to maintain light navbar with dark text */
+    /* --text-primary: #FFFFFF; */
+    /* --text-secondary: #B0E0E6; */
+    /* --text-light: #00BFFF; */
+    /* --bg-primary: #000000; */
+    /* --bg-secondary: #14532D; */
+    /* --shadow-light: rgba(255, 255, 255, 0.1); */
+    /* --shadow-medium: rgba(255, 255, 255, 0.2); */
+  }
+}
+
+/* Utility classes for quick color application */
+.text-primary { color: var(--primary-color); }
+.text-primary-dark { color: var(--primary-dark); }
+.text-secondary { color: var(--secondary-color); }
+.text-secondary-dark { color: var(--secondary-dark); }
+.text-accent { color: var(--accent-color); }
+.text-white { color: var(--text-white); }
+.text-black { color: var(--text-primary); }
+
+.bg-primary { background-color: var(--primary-color); }
+.bg-primary-dark { background-color: var(--primary-dark); }
+.bg-secondary { background-color: var(--secondary-color); }
+.bg-secondary-dark { background-color: var(--secondary-dark); }
+.bg-light { background-color: var(--primary-light); }
+.bg-white { background-color: var(--bg-primary); }
+.bg-dark { background-color: var(--bg-dark); }
+.bg-nature { background-color: var(--bg-nature); }
+.bg-footer { background-color: var(--bg-footer); }
+
+.bg-gradient { background: var(--gradient-primary); }
+.bg-gradient-nature { background: var(--gradient-nature); }
+
+/* Button variations */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--primary-light);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+}
+
+.btn-nature {
+  background-color: var(--secondary-color);
+  color: var(--text-white);
+  border: none;
+}
+
+.btn-nature:hover {
+  background-color: var(--secondary-dark);
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--primary-color);
+  color: var(--text-white);
+}
+
+::-moz-selection {
+  background: var(--primary-color);
+  color: var(--text-white);
+}

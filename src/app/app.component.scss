@@ -1,0 +1,339 @@
+// Navigation Styles
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px var(--shadow-light);
+  z-index: 1000;
+  transition: all 0.3s ease;
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: 100px;
+    gap: 2rem;
+  }
+
+  .nav-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .nav-logo-link {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+
+      .logo-image {
+        height: 110px;
+        width: auto;
+        max-width: 500px;
+        object-fit: contain;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      .logo-text {
+        display: none;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+
+    &.nav-menu-left {
+      justify-content: flex-end;
+    }
+
+    &.nav-menu-right {
+      justify-content: flex-start;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+
+      &:hover {
+        color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      &:hover::after {
+        width: 80%;
+      }
+
+      &.cta-button {
+        background: var(--whatsapp-green);
+        color: var(--text-white);
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        box-shadow: 0 4px 15px var(--shadow-whatsapp);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+
+        // Add WhatsApp icon using CSS
+        &::before {
+          content: "💬";
+          font-size: 1.1em;
+          margin-right: 0.2rem;
+        }
+
+        &:hover {
+          transform: translateY(-3px);
+          background: var(--whatsapp-green-dark);
+          box-shadow: 0 6px 20px var(--shadow-whatsapp-hover);
+          color: var(--text-white);
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+    justify-self: end;
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      margin: 3px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    &.active {
+      .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+    }
+  }
+}
+
+// Main content spacing
+.main-content {
+  margin-top: 100px;
+  min-height: calc(100vh - 100px);
+}
+
+// Mobile Styles
+@media screen and (max-width: 768px) {
+  .navbar {
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 95px;
+      position: relative;
+    }
+
+    .nav-logo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
+      .nav-logo-link {
+        .logo-image {
+          height: 100px;
+          max-width: 380px;
+        }
+      }
+    }
+
+    .nav-toggle {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .nav-menu {
+      display: none;
+    }
+
+    .nav-menu-mobile {
+      position: fixed;
+      top: 95px;
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - 95px);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 2rem;
+      gap: 1.5rem;
+      transition: all 0.3s ease;
+      z-index: 999;
+
+      &.active {
+        left: 0;
+      }
+
+      .nav-link {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+        width: 80%;
+        text-align: center;
+        border: 2px solid transparent;
+        border-radius: 15px;
+        text-decoration: none;
+        color: var(--text-primary);
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: var(--border-light);
+          border-color: var(--border-medium);
+          color: var(--primary-color);
+        }
+
+        &.cta-button {
+          margin-top: 1rem;
+          width: auto;
+          min-width: 200px;
+          background: var(--whatsapp-green);
+          color: var(--text-white);
+          font-weight: 600;
+          box-shadow: 0 4px 15px var(--shadow-whatsapp);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+
+          // Add WhatsApp icon for mobile
+          &::before {
+            content: "💬";
+            font-size: 1.1em;
+            margin-right: 0.2rem;
+          }
+
+          &:hover {
+            background: var(--whatsapp-green-dark);
+            color: var(--text-white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow-whatsapp-hover);
+          }
+        }
+      }
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    .main-content {
+      margin-top: 95px;
+      min-height: calc(100vh - 95px);
+    }
+  }
+}
+
+// Tablet Styles
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .navbar {
+    .nav-container {
+      padding: 0 15px;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      .nav-logo-link {
+        .logo-image {
+          height: 95px;
+          max-width: 450px;
+        }
+      }
+    }
+
+    .nav-menu {
+      gap: 1rem;
+
+      .nav-link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+      }
+    }
+
+    .nav-menu-mobile {
+      display: none;
+    }
+  }
+}
+
+// Desktop styles - hide mobile menu
+@media screen and (min-width: 1025px) {
+  .navbar {
+    .nav-menu-mobile {
+      display: none;
+    }
+  }
+}
+
+// Animation for smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Prevent body scroll when mobile menu is open
+body.menu-open {
+  overflow: hidden;
+}
