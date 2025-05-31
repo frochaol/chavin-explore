@@ -87,6 +87,107 @@
   </div>
 </section>
 
+<!-- Past Expeditions Section -->
+<section class="expeditions-section">
+  <div class="expeditions-container">
+    <div class="expeditions-header">
+      <h2 class="expeditions-title">Nuestras Últimas Expediciones</h2>
+      <p class="expeditions-subtitle">Revive las aventuras épicas que nuestros exploradores han vivido en la Cordillera de los Andes</p>
+    </div>
+
+    <div class="expeditions-grid">
+      <div class="expedition-card featured" *ngIf="!isMobile || true">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+               alt="Trekking Huayhuash">
+          <div class="card-overlay"></div>
+          <div class="card-badge">Featured</div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Cordillera Huayhuash</h3>
+          <span class="card-date">Marzo 2024</span>
+          <p class="card-description">Una expedición de 12 días atravesando uno de los circuitos más espectaculares del mundo, rodeando las imponentes montañas de la Cordillera Huayhuash.</p>
+        </div>
+      </div>
+
+      <div class="expedition-card" *ngIf="!isMobile">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+               alt="Laguna 69">
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Laguna 69</h3>
+          <span class="card-date">Febrero 2024</span>
+          <p class="card-description">Caminata de día completo hacia una de las lagunas más fotografiadas del Perú, con vistas impresionantes del Nevado Chacraraju.</p>
+        </div>
+      </div>
+
+      <div class="expedition-card" *ngIf="!isMobile">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+               alt="Santa Cruz Trek">
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Santa Cruz Trek</h3>
+          <span class="card-date">Enero 2024</span>
+          <p class="card-description">4 días de trekking por el corazón de la Cordillera Blanca, cruzando el paso Punta Unión a 4,750m de altitud.</p>
+        </div>
+      </div>
+
+      <div class="expedition-card" *ngIf="!isMobile">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+               alt="Alpamayo Base Camp">
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Campo Base Alpamayo</h3>
+          <span class="card-date">Diciembre 2023</span>
+          <p class="card-description">Expedición hacia el campo base de la "montaña más bella del mundo", una aventura de 6 días llena de paisajes glaciares únicos.</p>
+        </div>
+      </div>
+
+      <div class="expedition-card" *ngIf="!isMobile">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+               alt="Salkantay Trek">
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Salkantay Trek</h3>
+          <span class="card-date">Noviembre 2023</span>
+          <p class="card-description">Una alternativa al Camino Inca, este trekking de 5 días te lleva a través de paisajes diversos y culmina en Machu Picchu.</p>
+        </div>
+      </div>
+
+      <div class="expedition-card featured" *ngIf="!isMobile || true">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+               alt="Ausangate Trek">
+          <div class="card-overlay"></div>
+          <div class="card-badge">Destacado</div>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Ausangate Trek</h3>
+          <span class="card-date">Octubre 2023</span>
+          <p class="card-description">Una expedición de 7 días alrededor del nevado Ausangate, conocido por sus coloridas montañas y aguas termales naturales en la región de Cusco.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="expeditions-cta">
+      <h3 class="cta-title">¿Listo para tu próxima aventura?</h3>
+      <p class="cta-description">Únete a nosotros en nuestras próximas expediciones y vive experiencias inolvidables</p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary">Ver Próximos Viajes</button>
+        <button class="btn btn-secondary">Planifica tu Expedición</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <main class="main-content">
   <router-outlet />
 </main>

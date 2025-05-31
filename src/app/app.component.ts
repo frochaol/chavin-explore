@@ -1,16 +1,28 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'chavin-explore-webp';
   isMenuOpen = false;
+  isMobile = false;
+
+  constructor() {
+    this.checkScreenSize();
+    // Listen for window resize events
+    window.addEventListener('resize', () => this.checkScreenSize());
+  }
+
+  checkScreenSize() {
+    this.isMobile = window.innerWidth <= 768;
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
