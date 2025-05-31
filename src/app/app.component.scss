@@ -170,13 +170,14 @@
 .hero-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 85vh;
+  max-height: 800px;
   min-height: 600px;
-  background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+  background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -100px;
   padding-top: 100px;
   overflow: hidden;
 
@@ -186,7 +187,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); // Minimal dark overlay for text readability only
+    background: rgba(0, 0, 0, 0.3);
     z-index: 1;
   }
 
@@ -283,10 +284,260 @@
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
 // Main content spacing adjustment
 .main-content {
   margin-top: 0; // Remove top margin since hero section handles the spacing
   min-height: calc(100vh - 100px);
+}
+
+// Welcome Section Styles
+.welcome-section {
+  padding: 60px 0 120px 0;
+  background: linear-gradient(135deg,
+    var(--primary-light) 0%,
+    rgba(255, 255, 255, 0.95) 25%,
+    rgba(176, 224, 230, 0.3) 50%,
+    rgba(255, 255, 255, 0.9) 75%,
+    var(--bg-primary) 100%
+  );
+  position: relative;
+  overflow: hidden;
+
+  // Decorative background elements
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 191, 255, 0.08) 0%,
+      rgba(0, 191, 255, 0.05) 30%,
+      transparent 60%
+    );
+    transform: rotate(-15deg);
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: -15%;
+    width: 80%;
+    height: 120%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(46, 139, 87, 0.06) 0%,
+      rgba(46, 139, 87, 0.03) 40%,
+      transparent 70%
+    );
+    transform: rotate(25deg);
+    z-index: 1;
+  }
+
+  // Additional decorative circles
+  .welcome-bg-decoration {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: float 6s ease-in-out infinite;
+
+    &.circle-1 {
+      top: 10%;
+      left: 5%;
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(45deg,
+        rgba(0, 191, 255, 0.15),
+        rgba(176, 224, 230, 0.1)
+      );
+      animation-delay: 0s;
+    }
+
+    &.circle-2 {
+      top: 60%;
+      right: 8%;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(45deg,
+        rgba(46, 139, 87, 0.12),
+        rgba(46, 139, 87, 0.06)
+      );
+      animation-delay: 2s;
+    }
+
+    &.circle-3 {
+      bottom: 20%;
+      left: 10%;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(45deg,
+        rgba(0, 119, 182, 0.1),
+        rgba(0, 191, 255, 0.05)
+      );
+      animation-delay: 4s;
+    }
+  }
+
+  .welcome-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .welcome-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .welcome-text {
+    padding-right: 2rem;
+
+    .welcome-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
+      line-height: 1.3;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+      }
+    }
+
+    .welcome-description {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+      opacity: 0.9;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .welcome-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    .welcome-img {
+      width: 100%;
+      max-width: 500px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      position: relative;
+      // Optimizar las transformaciones
+      will-change: transform;
+      transform: translateZ(0);
+
+      &:hover {
+        transform: translateY(-10px) scale(1.02) translateZ(0);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        background: linear-gradient(45deg, rgba(41, 128, 185, 0.1), rgba(52, 152, 219, 0.05));
+        transition: opacity 0.3s ease;
+        opacity: 0;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+
+    .btn-explore {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: var(--gradient-primary);
+      color: var(--text-white);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 200px;
+      box-shadow: 0 8px 25px rgba(41, 128, 185, 0.3);
+      position: relative;
+      overflow: hidden;
+      // Optimizar las transformaciones
+      will-change: transform;
+      transform: translateZ(0);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      &:hover {
+        transform: translateY(-3px) translateZ(0);
+        box-shadow: 0 12px 35px rgba(41, 128, 185, 0.4);
+        background: var(--gradient-primary-hover);
+
+        &::before {
+          left: 100%;
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px) translateZ(0);
+      }
+    }
+  }
 }
 
 // Mobile Styles
@@ -404,10 +655,11 @@
   }
 
   .hero-section {
-    height: 80vh;
+    height: 75vh;
+    max-height: 600px;
     min-height: 500px;
-    margin-top: -95px;
     padding-top: 95px;
+    background-attachment: scroll; // Fixed attachment can cause issues on mobile
 
     .hero-content {
       padding: 0 15px;
@@ -454,6 +706,49 @@
       }
     }
   }
+
+  .welcome-section {
+    padding: 40px 0; // Reducir padding de 80px a 40px para mobile
+
+    .welcome-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+      min-height: auto;
+    }
+
+    .welcome-text {
+      padding-right: 0;
+      text-align: center;
+
+      .welcome-title {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .welcome-description {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+        text-align: left;
+      }
+    }
+
+    .welcome-image {
+      order: 1; // Keep image after text on mobile
+
+      .welcome-img {
+        height: 280px;
+        max-width: 100%;
+      }
+
+      .btn-explore {
+        min-width: 180px;
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+      }
+    }
+  }
 }
 
 // Tablet Styles
@@ -495,6 +790,16 @@
 
       .hero-subtitle {
         font-size: 1.3rem;
+      }
+    }
+  }
+
+  .welcome-section {
+    .welcome-content {
+      grid-template-columns: 1fr 1fr;
+
+      .welcome-text {
+        padding-right: 2rem;
       }
     }
   }
