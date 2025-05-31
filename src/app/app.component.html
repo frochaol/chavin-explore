@@ -188,6 +188,246 @@
   </div>
 </section>
 
+<!-- Tours Section -->
+<section class="tours-section">
+  <div class="tours-container">
+    <div class="tours-header">
+      <h2 class="tours-title">Nuestros Tours</h2>
+      <p class="tours-subtitle">Descubre la aventura perfecta para ti con nuestras tres modalidades de tours</p>
+    </div>
+
+    <!-- Tour Categories Tabs -->
+    <div class="tours-tabs">
+      <button class="tab-button"
+              [class.active]="activeTab === 'todos'"
+              (click)="setActiveTab('todos')">
+        <span class="tab-icon">🌄</span>
+        Tours para Todos
+      </button>
+      <button class="tab-button"
+              [class.active]="activeTab === 'aventura'"
+              (click)="setActiveTab('aventura')">
+        <span class="tab-icon">🥾</span>
+        Tours de Aventura
+      </button>
+      <button class="tab-button"
+              [class.active]="activeTab === 'extremo'"
+              (click)="setActiveTab('extremo')">
+        <span class="tab-icon">⚡</span>
+        Tours Extremos
+      </button>
+    </div>
+
+    <!-- Tours Content -->
+    <div class="tours-content">
+      <!-- Tours para Todos -->
+      <div class="tours-grid" *ngIf="activeTab === 'todos'">
+        <div class="tour-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                 alt="Mirador de Pastoruri">
+            <div class="card-overlay"></div>
+            <div class="difficulty-badge easy">Fácil</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Mirador de Pastoruri</h3>
+            <div class="card-details">
+              <span class="duration">📅 1 día</span>
+              <span class="difficulty">👥 Familiar</span>
+            </div>
+            <p class="card-description">Visita el glaciar Pastoruri y disfruta de paisajes únicos accesibles para toda la familia.</p>
+            <div class="card-footer">
+              <span class="price">S/. 120</span>
+              <button class="btn-tour">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tour-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                 alt="Lagunas de Llanganuco">
+            <div class="card-overlay"></div>
+            <div class="difficulty-badge easy">Fácil</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Lagunas de Llanganuco</h3>
+            <div class="card-details">
+              <span class="duration">📅 1 día</span>
+              <span class="difficulty">👥 Familiar</span>
+            </div>
+            <p class="card-description">Conoce las hermosas lagunas turquesas en el corazón del Parque Nacional Huascarán.</p>
+            <div class="card-footer">
+              <span class="price">S/. 100</span>
+              <button class="btn-tour">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tour-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                 alt="Chavín de Huántar">
+            <div class="card-overlay"></div>
+            <div class="difficulty-badge easy">Fácil</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Chavín de Huántar</h3>
+            <div class="card-details">
+              <span class="duration">📅 1 día</span>
+              <span class="difficulty">🏛️ Cultural</span>
+            </div>
+            <p class="card-description">Explora el sitio arqueológico más importante de la cultura Chavín, patrimonio de la humanidad.</p>
+            <div class="card-footer">
+              <span class="price">S/. 150</span>
+              <button class="btn-tour">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tours de Aventura -->
+      <div class="tours-grid" *ngIf="activeTab === 'aventura'">
+        <div class="tour-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1464822759844-d150baec0494?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                 alt="Laguna 69 Trek">
+            <div class="card-overlay"></div>
+            <div class="difficulty-badge medium">Moderado</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Laguna 69 Trek</h3>
+            <div class="card-details">
+              <span class="duration">📅 1 día</span>
+              <span class="difficulty">🥾 Trekking</span>
+            </div>
+            <p class="card-description">Caminata hacia una de las lagunas más fotografiadas del Perú con vista al Chacraraju.</p>
+            <div class="card-footer">
+              <span class="price">S/. 180</span>
+              <button class="btn-tour">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tour-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                 alt="Santa Cruz Trek">
+            <div class="card-overlay"></div>
+            <div class="difficulty-badge medium">Moderado</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Santa Cruz Trek</h3>
+            <div class="card-details">
+              <span class="duration">📅 4 días</span>
+              <span class="difficulty">🏔️ Montaña</span>
+            </div>
+            <p class="card-description">Trek de 4 días por la Cordillera Blanca cruzando el paso Punta Unión a 4,750m.</p>
+            <div class="card-footer">
+              <span class="price">S/. 450</span>
+              <button class="btn-tour">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tour-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                 alt="Salkantay Trek">
+            <div class="card-overlay"></div>
+            <div class="difficulty-badge medium">Moderado</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Salkantay Trek</h3>
+            <div class="card-details">
+              <span class="duration">📅 5 días</span>
+              <span class="difficulty">🏔️ Montaña</span>
+            </div>
+            <p class="card-description">Ruta alternativa al Camino Inca que culmina en la ciudadela de Machu Picchu.</p>
+            <div class="card-footer">
+              <span class="price">S/. 650</span>
+              <button class="btn-tour">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tours Extremos -->
+      <div class="tours-grid" *ngIf="activeTab === 'extremo'">
+        <div class="tour-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                 alt="Huayhuash Circuit">
+            <div class="card-overlay"></div>
+            <div class="difficulty-badge hard">Extremo</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Huayhuash Circuit</h3>
+            <div class="card-details">
+              <span class="duration">📅 12 días</span>
+              <span class="difficulty">⛰️ Alpinismo</span>
+            </div>
+            <p class="card-description">El circuito de trekking más desafiante del mundo, rodeando las montañas más altas del Perú.</p>
+            <div class="card-footer">
+              <span class="price">S/. 1,200</span>
+              <button class="btn-tour">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tour-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1464822759844-d150baec0494?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                 alt="Alpamayo Base Camp">
+            <div class="card-overlay"></div>
+            <div class="difficulty-badge hard">Extremo</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Alpamayo Base Camp</h3>
+            <div class="card-details">
+              <span class="duration">📅 7 días</span>
+              <span class="difficulty">🧗 Técnico</span>
+            </div>
+            <p class="card-description">Expedición al campo base de la "montaña más bella del mundo" con técnicas de alta montaña.</p>
+            <div class="card-footer">
+              <span class="price">S/. 950</span>
+              <button class="btn-tour">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tour-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                 alt="Ausangate Trek">
+            <div class="card-overlay"></div>
+            <div class="difficulty-badge hard">Extremo</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Ausangate Trek</h3>
+            <div class="card-details">
+              <span class="duration">📅 7 días</span>
+              <span class="difficulty">🏔️ Altitud</span>
+            </div>
+            <p class="card-description">Trek de alta dificultad alrededor del nevado Ausangate, con pasos a más de 5,000m.</p>
+            <div class="card-footer">
+              <span class="price">S/. 850</span>
+              <button class="btn-tour">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tours CTA -->
+    <div class="tours-cta">
+      <h3 class="cta-title">¿No encuentras el tour perfecto para ti?</h3>
+      <p class="cta-description">Contáctanos y diseñaremos una experiencia personalizada según tus preferencias y nivel de aventura</p>
+      <button class="btn btn-primary">Consulta Personalizada</button>
+    </div>
+  </div>
+</section>
+
 <main class="main-content">
   <router-outlet />
 </main>

@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'chavin-explore-webp';
   isMenuOpen = false;
   isMobile = false;
+  activeTab = 'todos'; // Default active tab
 
   constructor() {
     this.checkScreenSize();
@@ -39,5 +40,9 @@ export class AppComponent {
   closeMenu() {
     this.isMenuOpen = false;
     document.body.classList.remove('menu-open');
+  }
+
+  setActiveTab(tab: string) {
+    this.activeTab = tab;
   }
 }
